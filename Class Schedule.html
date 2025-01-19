@@ -22,7 +22,9 @@
 </head>
 <body>
     <center>
-        <table>
+        <button id="toggleEdit">Enable Edit Mode</button>
+      
+        <table id="scheduleTable">
             <tr>
                 <th colspan="6" ><h1>Class Schedule 2nd Sem: 1 BSIT-4 </h1></th>
             </tr>
@@ -84,5 +86,22 @@
             </tr>
         </table>
     </center>
+     <script>
+        const toggleButton = document.getElementById("toggleEdit");
+        const table = document.getElementById("scheduleTable");
+
+        // Toggle editable mode for table cells
+        toggleButton.addEventListener("click", () => {
+            const cells = table.querySelectorAll("td, th");
+            if (toggleButton.textContent === "Enable Edit Mode") {
+                cells.forEach(cell => cell.contentEditable = "true");
+                toggleButton.textContent = "Disable Edit Mode";
+            } else {
+                cells.forEach(cell => cell.contentEditable = "false");
+                toggleButton.textContent = "Enable Edit Mode";
+            }
+        });
+    </script>
+  
 </body>
 </html>
